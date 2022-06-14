@@ -50,7 +50,7 @@ app.get('/weather',(req,res)=>{
     }
     
     utils.coordinatesService(searchAddress,utils.weatherService,(weatherData)=>{
-        console.log(weatherData);
+
         res.render('weather',{
             'title':'Weather Report',
             'address':searchAddress,
