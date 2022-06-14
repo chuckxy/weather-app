@@ -1,0 +1,18 @@
+h1 {
+    color:gray;
+}
+
+img {
+    width: 250px;
+}
+
+.foot {
+    position:absolute;
+    bottom: 0;
+}
+
+.not-found {
+
+    margin-right: auto;
+    margin-left: auto;
+}
