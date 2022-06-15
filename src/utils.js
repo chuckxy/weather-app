@@ -28,7 +28,6 @@ const getCoordinates=(search,weatherServiceFunc,responseFunc)=>{
         }else if(response.body.features.length===0){
             responseFunc({'error':'Please input a valid location to search'});//call back function sends error messgae;
         }else{
-            console.log(response.body);
             const coordinates=response.body.features[0].geometry.coordinates;
             const place=response.body.features[0].place_name;
             weatherServiceFunc(coordinates[1],coordinates[0],responseFunc);

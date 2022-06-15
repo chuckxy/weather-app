@@ -24,7 +24,7 @@ window.onload=function(){
     });
 
     function getWeatherReport(location,callBackFunction){
-        fetch('http://localhost/getWeatherServices?address='+location).then((coordinates)=>{
+        fetch('/getWeatherServices?address='+location).then((coordinates)=>{
             coordinates.json().then((data)=>{
                 console.log(data);
                 callBackFunction(data);

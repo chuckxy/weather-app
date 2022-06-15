@@ -8,6 +8,8 @@ const hbs=require('hbs');
 
 const utils=require('./utils.js');
 
+const port=process.env.PORT || 80;
+
 //define paths for express config
 const publicDirectoryPath=path.join(__dirname,'../public');//access index file of application;
 const viewsPath=path.join(__dirname,'../templates/views');
@@ -43,14 +45,9 @@ app.get('/help',(req,res)=>{
 });
 
 app.get('/weather',(req,res)=>{
-    const searchAddress=req.query.address;
-    if(!searchAddress){
-        res.send('No Address provided. You can not proceed');
-        return;
-    }
-    
+    let searchAddress=req.query.address;
+    searchAddress===undefined?searchAddress="Kumasi":searchAddress;
     utils.coordinatesService(searchAddress,utils.weatherService,(weatherData)=>{
-
         res.render('weather',{
             'title':'Weather Report',
             'address':searchAddress,
@@ -67,7 +64,6 @@ app.get('/getWeatherServices',(req,res)=>{
     }
     
     utils.coordinatesService(searchAddress,utils.weatherService,(weatherData)=>{
-        console.log(weatherData);
         res.send(weatherData);
     });
 
@@ -80,7 +76,7 @@ app.get('*',(req,res)=>{
     });
 });
 
-app.listen(80,()=>{
+app.listen(port,()=>{
     console.log('Server is up on port 80');
 });
 
