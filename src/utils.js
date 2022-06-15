@@ -1,4 +1,3 @@
-const chalk = require('chalk');
 const request=require('request');
 
 const getWeatherService=(latitude,longitude,responseFunc)=>{
