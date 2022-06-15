@@ -83,3 +83,6 @@ app.get('*',(req,res)=>{
 app.listen(80,()=>{
     console.log('Server is up on port 80');
 });
+
+//git commands;
+//git push -u origin main
