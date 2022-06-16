@@ -4,13 +4,15 @@
   "description": "web services",
   "main": "app.js",
   "scripts": {
-    "start":"node src/app.js"
+    "start": "node src/app.js",
+    "dev": "node src/app.js -e js,hbs"
   },
   "author": "Charles",
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.1",
     "hbs": "^4.2.0",
+    "nodemon": "^2.0.16",
     "request": "^2.88.2"
   }
 }
