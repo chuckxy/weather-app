@@ -9,7 +9,10 @@ const getWeatherService = (latitude, longitude, responseFunc) => {
         if (error) {
             responseFunc({'error': 'No connection to server'});
         } else if (response.body.error) {
-            responseFunc({'error': 'An error occurred From Server Side!'});
+            console.log(response.body);
+            responseFunc({
+                'error': response.body.error.info + ' (Weather Stack!)'
+            });
         } else {
             const data = response.body.current;
             const temp = data.temperature;
